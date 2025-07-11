@@ -3,16 +3,17 @@ defmodule ExceptionTypeExample do
   Documentation for `ExceptionTypeExample`.
   """
 
-  @doc """
-  Hello world.
+  defexception [:message, :other]
 
-  ## Examples
+  @impl true
+  def exception(binary_or_keyword)
 
-      iex> ExceptionTypeExample.hello()
-      :world
+  def exception(message) when is_binary(message) do
+    super(message: message, other: :other)
+  end
 
-  """
-  def hello do
-    :world
+  def exception(attributes) when is_list(attributes) do
+    attributes = Keyword.put(attributes, :other, :other)
+    super(attributes)
   end
 end
