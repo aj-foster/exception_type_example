@@ -39,3 +39,13 @@ defmodule ExceptionTypeExample do
   end
 end
 ```
+
+## Environment
+
+Tested on:
+
+```
+Erlang/OTP 28 [erts-16.0.1] [source] [64-bit] [smp:14:14] [ds:14:14:10] [async-threads:1] [jit]
+
+Elixir 1.18.4 (compiled with Erlang/OTP 28)
+```
