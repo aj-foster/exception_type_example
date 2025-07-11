@@ -1,21 +1,15 @@
-# ExceptionTypeExample
+# Exception Type Example
 
-**TODO: Add description**
+This PR is a reduced test case demonstrating a dialyzer warning related to Elixir's core Exception behaviour.
 
-## Installation
+When overriding `exception/1` in a custom `defexception` module, calls to `super` can create dialyzer warnings if not all clauses of the overridden method are used.
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `exception_type_example` to your list of dependencies in `mix.exs`:
+Specifically, this test cases produces the following warning on `defexception`:
 
-```elixir
-def deps do
-  [
-    {:exception_type_example, "~> 0.1.0"}
-  ]
-end
 ```
+The guard test:
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/exception_type_example>.
+is_binary(_ :: [{atom(), _}, ...])
 
+can never succeed.
+```
