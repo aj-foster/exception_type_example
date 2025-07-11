@@ -6,14 +6,7 @@ defmodule ExceptionTypeExample do
   defexception [:message, :other]
 
   @impl true
-  def exception(binary_or_keyword)
-
-  def exception(message) when is_binary(message) do
+  def exception(message) do
     super(message: message, other: :other)
-  end
-
-  def exception(attributes) when is_list(attributes) do
-    attributes = Keyword.put(attributes, :other, :other)
-    super(attributes)
   end
 end
