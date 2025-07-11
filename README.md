@@ -14,6 +14,8 @@ is_binary(_ :: [{atom(), _}, ...])
 can never succeed.
 ```
 
+(run `mix dialyzer` for type checking)
+
 The offending code:
 
 ```elixir
