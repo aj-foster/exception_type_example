@@ -14,6 +14,8 @@ is_binary(_ :: [{atom(), _}, ...])
 can never succeed.
 ```
 
+(run `mix dialyzer` for type checking)
+
 The offending code:
 
 ```elixir
@@ -36,4 +38,14 @@ defmodule ExceptionTypeExample do
     super(attributes)
   end
 end
+```
+
+## Environment
+
+Tested on:
+
+```
+Erlang/OTP 28 [erts-16.0.1] [source] [64-bit] [smp:14:14] [ds:14:14:10] [async-threads:1] [jit]
+
+Elixir 1.18.4 (compiled with Erlang/OTP 28)
 ```
